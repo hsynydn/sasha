@@ -12,17 +12,45 @@ namespace sasha
 namespace view
 {
 
+struct __window__{
+public:
+    __window__(){};
+
+    ~__window__(){
+        delwin(__w__);
+    }
+
+    void create(int nlines, int ncols, int begin_y, int begin_x){
+        __w__ = newwin(nlines, ncols, begin_y, begin_x);
+        box(__w__, 0, 0);
+        wrefresh(__w__);
+    }
+private:
+    WINDOW* __w__;
+};
+
 struct layout{
 public:
     layout(){};
-    void set_attr(sasha::view::attr::dimension& d){
-        width = d;
+    void set_attr(sasha::view::attr::width& w){
+        width = w;
     };
+
+    void set_attr(sasha::view::attr::height& h){
+        height = h;
+    };
+
+    void build(){
+        w = new __window__();
+        w->create(height.get_attr().n, width.get_attr().n, 0, 0);
+    }
 private:
-    sasha::view::attr::dimension   width;
-    sasha::view::attr::dimension   height;
-    sasha::view::attr::color       bgColor;
-    sasha::view::attr::color       fgColor;
+    sasha::view::attr::width    width;
+    sasha::view::attr::height   height;
+    sasha::view::attr::bgcolor  bgColor;
+    sasha::view::attr::fgcolor  fgColor;
+
+    __window__* w;
 };
 
 }
