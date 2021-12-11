@@ -40,15 +40,20 @@ public:
         height = h;
     };
 
+    void set_attr(sasha::view::attr::placement& l){
+        position = l;
+    };
+
     void build(){
         w = new __window__();
-        w->create(height.get_attr().n, width.get_attr().n, 0, 0);
+        w->create(height.get_attr().n, width.get_attr().n, position.get_attr().x->n, position.get_attr().y->n);
     }
 private:
-    sasha::view::attr::width    width;
-    sasha::view::attr::height   height;
-    sasha::view::attr::bgcolor  bgColor;
-    sasha::view::attr::fgcolor  fgColor;
+    sasha::view::attr::width        width;
+    sasha::view::attr::height       height;
+    sasha::view::attr::bgcolor      bgColor;
+    sasha::view::attr::fgcolor      fgColor;
+    sasha::view::attr::placement    position;
 
     __window__* w;
 };

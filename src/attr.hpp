@@ -42,6 +42,22 @@ public:
 	int n;
 };
 
+struct location{
+public:
+	location(int _x, int _y)
+	{
+        x = new cols(_x);
+        y = new lines(_y);
+    };
+	struct location& operator=(const location& p){
+		*x = *(p.x);
+		*y = *(p.y);
+    	return *this;
+	}
+    cols* x;
+    lines* y;
+};
+
 template <class T>
 struct __attr__{
 public:
@@ -75,6 +91,7 @@ typedef __attr__<struct lines>          height;
 typedef __attr__<sasha::style::color>   bgcolor;
 typedef __attr__<sasha::style::color>   fgcolor;
 typedef __attr__<sasha::style::text>    text;
+typedef __attr__<struct location>       placement;
 }
 }
 }
