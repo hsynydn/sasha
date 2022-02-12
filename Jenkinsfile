@@ -20,15 +20,8 @@ pipeline {
         }
     }
     post {
-        always{
-            steps{
-                script{
-                    def ch = '@huseyinaydin.ce'
-                    def colorCode = '##FF0000'
-                    def summary = 'Build Successful'
-                    slackSend (channel: ch, color: colorCode, message: summary)
-                }
-            }
+        success {
+            slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
         }
     }
 }
