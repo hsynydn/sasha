@@ -6,7 +6,7 @@
 #include <thread>
 
 /*
-**
+** Some Comment
 */
 int main(int argc, char** argv){
 	std::cout << "sasha test ..." << std::endl;
@@ -14,7 +14,7 @@ int main(int argc, char** argv){
 	sasha::view::attr::width w(100);
 	sasha::view::attr::height h(100);
 	sasha::view::attr::fgcolor textColor(sasha::style::color(0, 0, 0));
-	sasha::view::attr::text textStyle(sasha::style::text::BOLD);
+	sasha::view::attr::text textStyle(sasha::style::text::BOLD);	
 
 	sasha::view::layout l;
 	l.set_attr(w);
