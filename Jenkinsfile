@@ -19,10 +19,11 @@ pipeline {
             }
         }
     }
-
     post {
         success {
-            slackSend message "Build deployed successfully"
+            script{
+                slackSend message "Build deployed successfully"
+            }
         }
     }
 }
