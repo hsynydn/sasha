@@ -20,10 +20,8 @@ pipeline {
         }
     }
     post {
-        steps{
-            success{
-                slackSend channel:'@huseyinaydin.ce', message 'Build deployed successfully'
-            }
+        success{
+            slackSend channel:'@huseyinaydin.ce', message 'Build deployed successfully'
         }
     }
 }
