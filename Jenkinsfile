@@ -26,7 +26,6 @@ pipeline {
                     def ch = '@huseyinaydin.ce'
                     def colorCode = '##FF0000'
                     def summary = 'Build Successful'
-                    slackSend channel:, message 'Build deployed successfully'
                     slackSend (channel: ch, color: colorCode, message: summary)
                 }
             }
