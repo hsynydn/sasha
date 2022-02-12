@@ -21,7 +21,11 @@ pipeline {
     }
     post {
         always{
-            slackSend channel:'@huseyinaydin.ce', message 'Build deployed successfully'
+            steps{
+                script{
+                    slackSend channel:'@huseyinaydin.ce', message 'Build deployed successfully'
+                }
+            }
         }
     }
 }
