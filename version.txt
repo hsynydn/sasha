@@ -1,1 +1,4 @@
 # version file
+
+VERSION_MAJOR
+VERSION_MAJOR
